@@ -13,7 +13,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
+
 vim.opt.rtp:prepend(lazypath)
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 require("vim-setup")
-require("lazy").setup("plugins")
+require("lazy").setup({
+  spec = { { import = "plugins" } },
+  ui = { border = "single" },
+})
