@@ -36,6 +36,7 @@ button:hover {
 
 #workspaces button {
     padding: 0 4px;
+    color: @text;
 }
 
 #workspaces button.focused {
@@ -51,7 +52,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @red;
 }
 
 #pulseaudio,
@@ -77,7 +78,7 @@ button:hover {
 
 #clock {
     color: @white;
-    border-bottom: 2px solid @maroon;
+    border-bottom: none;
 }
 
 #clock.date {
