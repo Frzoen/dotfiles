@@ -37,8 +37,9 @@ return {
 					close_command = require("bufdelete").bufdelete,
 				},
 			})
-			vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
-			vim.keymap.set("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
+			vim.keymap.set("n", "<s-l>", ":BufferLineCycleNext<CR>")
+			vim.keymap.set("n", "<s-h>", ":BufferLineCyclePrev<CR>")
+			vim.keymap.set("n", "<s-c>", ":Bdelete<CR>")
 		end,
 	},
 }
