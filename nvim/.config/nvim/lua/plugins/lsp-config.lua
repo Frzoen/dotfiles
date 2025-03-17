@@ -3,7 +3,9 @@ return {
     "williamboman/mason.nvim",
     lazy = false,
     config = function()
-      require("mason").setup()
+      require("mason").setup({
+        PATH = "append",
+        })
     end,
   },
   {
@@ -45,9 +47,6 @@ return {
         capabilities = capabilities
       })
       lspconfig.pylsp.setup({
-        capabilities = capabilities
-      })
-      lspconfig.pyright.setup({
         capabilities = capabilities
       })
 
