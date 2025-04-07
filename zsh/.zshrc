@@ -25,16 +25,11 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
-zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 # Completion styling
@@ -57,6 +52,9 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+# Enable Ctrl+arrow key bindings for word jumping
+bindkey '^[[1;5C' forward-word     # Ctrl+right arrow
+bindkey '^[[1;5D' backward-word    # Ctrl+left arrow
 
 # History
 HISTSIZE=10000000
@@ -91,9 +89,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval `keychain --quiet --agents ssh --eval ~/.ssh/gh_private`
-eval `keychain --quiet --agents ssh --eval ~/.ssh/ant_gitlab`
-
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -102,3 +97,9 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+eval `keychain --quiet --agents ssh --eval ~/.ssh/gh_private`
+eval `keychain --quiet --agents ssh --eval ~/.ssh/ant_gitlab`
+
+# Created by `pipx` on 2025-03-02 16:23:44
+export PATH="$PATH:/home/smroz/.local/bin"
